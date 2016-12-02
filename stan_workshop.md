@@ -237,7 +237,7 @@ stan_fit <- stan(file = "stan/old_age_1.stan", data = stan_input_data, iter = 10
 ##                  from c:/rpackages/StanHeaders/include/stan/math/rev/mat.hpp:9,
 ##                  from c:/rpackages/StanHeaders/include/stan/math.hpp:4,
 ##                  from c:/rpackages/StanHeaders/include/src/stan/model/model_header.hpp:4,
-##                  from file27466c46109.cpp:8:
+##                  from file2174653419d3.cpp:8:
 ## c:/rpackages/BH/include/boost/multi_array/concept_checks.hpp: In static member function 'static void boost::multi_array_concepts::detail::idgen_helper<N>::call(Array&, const IdxGen&, Call_Type)':
 ## c:/rpackages/BH/include/boost/multi_array/concept_checks.hpp:42:43: warning: typedef 'index_range' locally defined but not used [-Wunused-local-typedefs]
 ##        typedef typename Array::index_range index_range;
@@ -256,7 +256,7 @@ stan_fit <- stan(file = "stan/old_age_1.stan", data = stan_input_data, iter = 10
 ##                  from c:/rpackages/StanHeaders/include/stan/math/rev/mat.hpp:4,
 ##                  from c:/rpackages/StanHeaders/include/stan/math.hpp:4,
 ##                  from c:/rpackages/StanHeaders/include/src/stan/model/model_header.hpp:4,
-##                  from file27466c46109.cpp:8:
+##                  from file2174653419d3.cpp:8:
 ## c:/rpackages/StanHeaders/include/stan/math/rev/core/set_zero_all_adjoints.hpp: At global scope:
 ## c:/rpackages/StanHeaders/include/stan/math/rev/core/set_zero_all_adjoints.hpp:14:17: warning: 'void stan::math::set_zero_all_adjoints()' defined but not used [-Wunused-function]
 ##      static void set_zero_all_adjoints() {
@@ -280,14 +280,14 @@ print(stan_fit)
 ## beta[1]       0.26    0.00 0.01       0.24       0.25       0.26
 ## beta[2]       0.71    0.00 0.01       0.70       0.70       0.71
 ## beta[3]      -0.17    0.00 0.00      -0.17      -0.17      -0.17
-## lp__    2849213.87    0.06 1.26 2849210.61 2849213.35 2849214.19
+## lp__    2849213.91    0.06 1.21 2849210.58 2849213.36 2849214.21
 ##                75%      97.5% n_eff Rhat
-## beta[1]       0.26       0.28   377 1.02
-## beta[2]       0.71       0.72   382 1.02
-## beta[3]      -0.17      -0.16   879 1.00
-## lp__    2849214.76 2849215.27   422 1.00
+## beta[1]       0.26       0.27   208 1.01
+## beta[2]       0.71       0.72   216 1.01
+## beta[3]      -0.17      -0.16   986 1.00
+## lp__    2849214.78 2849215.26   479 1.00
 ## 
-## Samples were drawn using NUTS(diag_e) at Wed Nov 30 22:54:48 2016.
+## Samples were drawn using NUTS(diag_e) at Fri Dec 02 16:25:27 2016.
 ## For each parameter, n_eff is a crude measure of effective sample size,
 ## and Rhat is the potential scale reduction factor on split chains (at 
 ## convergence, Rhat=1).
@@ -325,6 +325,48 @@ transformed parameters {
 We can now run this model - it is identical to before so it should also have converged.
 
 
+```r
+# Note the change in the model name.
+stan_fit <- stan(file = "stan/old_age_save.stan", data = stan_input_data, iter = 1000,
+                 chains=3, cores=3)
+```
+
+```
+## In file included from c:/rpackages/BH/include/boost/multi_array/base.hpp:28:0,
+##                  from c:/rpackages/BH/include/boost/multi_array.hpp:21,
+##                  from c:/rpackages/BH/include/boost/numeric/odeint/util/multi_array_adaption.hpp:29,
+##                  from c:/rpackages/BH/include/boost/numeric/odeint.hpp:61,
+##                  from c:/rpackages/StanHeaders/include/stan/math/prim/arr/functor/integrate_ode_rk45.hpp:13,
+##                  from c:/rpackages/StanHeaders/include/stan/math/prim/arr.hpp:36,
+##                  from c:/rpackages/StanHeaders/include/stan/math/prim/mat.hpp:235,
+##                  from c:/rpackages/StanHeaders/include/stan/math/rev/mat.hpp:9,
+##                  from c:/rpackages/StanHeaders/include/stan/math.hpp:4,
+##                  from c:/rpackages/StanHeaders/include/src/stan/model/model_header.hpp:4,
+##                  from file217435dc45f1.cpp:8:
+## c:/rpackages/BH/include/boost/multi_array/concept_checks.hpp: In static member function 'static void boost::multi_array_concepts::detail::idgen_helper<N>::call(Array&, const IdxGen&, Call_Type)':
+## c:/rpackages/BH/include/boost/multi_array/concept_checks.hpp:42:43: warning: typedef 'index_range' locally defined but not used [-Wunused-local-typedefs]
+##        typedef typename Array::index_range index_range;
+##                                            ^
+## c:/rpackages/BH/include/boost/multi_array/concept_checks.hpp:43:37: warning: typedef 'index' locally defined but not used [-Wunused-local-typedefs]
+##        typedef typename Array::index index;
+##                                      ^
+## c:/rpackages/BH/include/boost/multi_array/concept_checks.hpp: In static member function 'static void boost::multi_array_concepts::detail::idgen_helper<0ull>::call(Array&, const IdxGen&, Call_Type)':
+## c:/rpackages/BH/include/boost/multi_array/concept_checks.hpp:53:43: warning: typedef 'index_range' locally defined but not used [-Wunused-local-typedefs]
+##        typedef typename Array::index_range index_range;
+##                                            ^
+## c:/rpackages/BH/include/boost/multi_array/concept_checks.hpp:54:37: warning: typedef 'index' locally defined but not used [-Wunused-local-typedefs]
+##        typedef typename Array::index index;
+##                                      ^
+## In file included from c:/rpackages/StanHeaders/include/stan/math/rev/core.hpp:42:0,
+##                  from c:/rpackages/StanHeaders/include/stan/math/rev/mat.hpp:4,
+##                  from c:/rpackages/StanHeaders/include/stan/math.hpp:4,
+##                  from c:/rpackages/StanHeaders/include/src/stan/model/model_header.hpp:4,
+##                  from file217435dc45f1.cpp:8:
+## c:/rpackages/StanHeaders/include/stan/math/rev/core/set_zero_all_adjoints.hpp: At global scope:
+## c:/rpackages/StanHeaders/include/stan/math/rev/core/set_zero_all_adjoints.hpp:14:17: warning: 'void stan::math::set_zero_all_adjoints()' defined but not used [-Wunused-function]
+##      static void set_zero_all_adjoints() {
+##                  ^
+```
 Now we have many monitored quantities, not just the betas but the mus too. We can plot a histogram of their rhat values, and we can also examine the autocorrelations of the first few parameters.
 
 
@@ -414,6 +456,48 @@ generated quantities{
 We can run the model again, and now extract posterior quantiles of interest.
 
 
+```r
+# Note the change in the model name.
+stan_fit <- stan(file = "stan/old_age_gen_quan.stan", data = stan_input_data, iter = 1000,
+                 chains=3, cores=3)
+```
+
+```
+## In file included from c:/rpackages/BH/include/boost/multi_array/base.hpp:28:0,
+##                  from c:/rpackages/BH/include/boost/multi_array.hpp:21,
+##                  from c:/rpackages/BH/include/boost/numeric/odeint/util/multi_array_adaption.hpp:29,
+##                  from c:/rpackages/BH/include/boost/numeric/odeint.hpp:61,
+##                  from c:/rpackages/StanHeaders/include/stan/math/prim/arr/functor/integrate_ode_rk45.hpp:13,
+##                  from c:/rpackages/StanHeaders/include/stan/math/prim/arr.hpp:36,
+##                  from c:/rpackages/StanHeaders/include/stan/math/prim/mat.hpp:235,
+##                  from c:/rpackages/StanHeaders/include/stan/math/rev/mat.hpp:9,
+##                  from c:/rpackages/StanHeaders/include/stan/math.hpp:4,
+##                  from c:/rpackages/StanHeaders/include/src/stan/model/model_header.hpp:4,
+##                  from file2174617f2ff8.cpp:8:
+## c:/rpackages/BH/include/boost/multi_array/concept_checks.hpp: In static member function 'static void boost::multi_array_concepts::detail::idgen_helper<N>::call(Array&, const IdxGen&, Call_Type)':
+## c:/rpackages/BH/include/boost/multi_array/concept_checks.hpp:42:43: warning: typedef 'index_range' locally defined but not used [-Wunused-local-typedefs]
+##        typedef typename Array::index_range index_range;
+##                                            ^
+## c:/rpackages/BH/include/boost/multi_array/concept_checks.hpp:43:37: warning: typedef 'index' locally defined but not used [-Wunused-local-typedefs]
+##        typedef typename Array::index index;
+##                                      ^
+## c:/rpackages/BH/include/boost/multi_array/concept_checks.hpp: In static member function 'static void boost::multi_array_concepts::detail::idgen_helper<0ull>::call(Array&, const IdxGen&, Call_Type)':
+## c:/rpackages/BH/include/boost/multi_array/concept_checks.hpp:53:43: warning: typedef 'index_range' locally defined but not used [-Wunused-local-typedefs]
+##        typedef typename Array::index_range index_range;
+##                                            ^
+## c:/rpackages/BH/include/boost/multi_array/concept_checks.hpp:54:37: warning: typedef 'index' locally defined but not used [-Wunused-local-typedefs]
+##        typedef typename Array::index index;
+##                                      ^
+## In file included from c:/rpackages/StanHeaders/include/stan/math/rev/core.hpp:42:0,
+##                  from c:/rpackages/StanHeaders/include/stan/math/rev/mat.hpp:4,
+##                  from c:/rpackages/StanHeaders/include/stan/math.hpp:4,
+##                  from c:/rpackages/StanHeaders/include/src/stan/model/model_header.hpp:4,
+##                  from file2174617f2ff8.cpp:8:
+## c:/rpackages/StanHeaders/include/stan/math/rev/core/set_zero_all_adjoints.hpp: At global scope:
+## c:/rpackages/StanHeaders/include/stan/math/rev/core/set_zero_all_adjoints.hpp:14:17: warning: 'void stan::math::set_zero_all_adjoints()' defined but not used [-Wunused-function]
+##      static void set_zero_all_adjoints() {
+##                  ^
+```
 
 
 

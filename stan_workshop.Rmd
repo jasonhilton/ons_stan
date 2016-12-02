@@ -235,7 +235,7 @@ transformed parameters {
 
 We can now run this model - it is identical to before so it should also have converged.
 
-```{r run_stan_save, warning=FALSE, include=FALSE,echo=TRUE}
+```{r run_stan_save, warning=FALSE}
 # Note the change in the model name.
 stan_fit <- stan(file = "stan/old_age_save.stan", data = stan_input_data, iter = 1000,
                  chains=3, cores=3)
@@ -301,7 +301,7 @@ generated quantities{
 
 We can run the model again, and now extract posterior quantiles of interest.
 
-```{r run_stan_gen, warning=FALSE, include=FALSE,echo=TRUE}
+```{r run_stan_gen, warning=FALSE}
 # Note the change in the model name.
 stan_fit <- stan(file = "stan/old_age_gen_quan.stan", data = stan_input_data, iter = 1000,
                  chains=3, cores=3)
